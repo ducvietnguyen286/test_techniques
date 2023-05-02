@@ -175,7 +175,7 @@ int main(){
    	write_procedure("UPDATE oa_trf_src_red SET srcTb = (SELECT id FROM oa_trf_src_srcTb_lkp WHERE champ = oa_trf_src_red.srcTb) WHERE EXISTS (SELECT id FROM oa_trf_src_srcTb_lkp WHERE champ = oa_trf_src_red.srcTb);", db);
    	write_procedure("UPDATE oa_trf_src_red SET srcLab = (SELECT id FROM oa_trf_src_srcLab_lkp WHERE champ = oa_trf_src_red.srcLab) WHERE EXISTS (SELECT id FROM oa_trf_src_srcLab_lkp WHERE champ = oa_trf_src_red.srcLab);", db);
     //convertir le type de colonnes dans la table abc de TEXT en INTERGER
-    write_procedure("CREATE TABLE  oa_trf_src_red (id INTEGER,trf INTEGER,tgtTb INTEGER,tgtLab INTEGER,srcTb INTEGER,srcLab INTEGER,impact INTEGER);",db);
+    write_procedure("CREATE TABLE  oa_trf_src_red_temp (id INTEGER,trf INTEGER,tgtTb INTEGER,tgtLab INTEGER,srcTb INTEGER,srcLab INTEGER,impact INTEGER);",db);
     write_procedure("INSERT INTO oa_trf_src_red_temp (id, trf, tgtTb,tgtLab,srcTb,srcLab,impact)SELECT CAST(id AS INTEGER), CAST(trf AS INTEGER), CAST(tgtTb AS INTEGER), CAST(tgtLab AS INTEGER), CAST(srcTb AS INTEGER), CAST(srcLab AS INTEGER), CAST(impact AS INTEGER) FROM oa_trf_src_red;",db);
     write_procedure("DROP TABLE oa_trf_src_red;",db);
     write_procedure("ALTER TABLE oa_trf_src_red_temp RENAME TO oa_trf_src_red;",db);
