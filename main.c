@@ -118,17 +118,6 @@ void trans_hashmap_to_database(HashMap* hashMaps, sqlite3 *db, char* name){
         }
     }
 }
-void free_hashmap(HashMap **hashMaps) {
-    HashMap *current, *tmp;
-
-    HASH_ITER(hh, *hashMaps, current, tmp) {
-        HASH_DEL(*hashMaps, current);
-        free(current->value);
-        free(current);
-    }
-
-    *hashMaps = NULL;
-}
 
 void write_procedure(char* sql, sqlite3* db ){
     int rc ;
