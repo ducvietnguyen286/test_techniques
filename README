@@ -1,1 +1,16 @@
-pour lancer le programme : make -> ./main
+pour lancer le programme sur Terminal : make -> ./main
+
+Fonctions:
+- void add_name(HashMap **hashMaps, const char *name): pour ajouter un élément au hashmap. Si l'élément n'est pas trouvé dans le hashmap, il en ajoutera un nouveau.
+
+- void create_hash_tbl(char* array_col, sqlite3 *db): crée une nouvelle table dans la base de données.
+
+- void print_hashmap(HashMap * hashMaps): imprime tous les éléments du hashmap, y compris leurs clés et leurs valeurs.
+
+- void print_value(HashMap *HashMaps, const char *value): Imprime la valeur trouvée dans le hashmap en fonction du value d'entrée.
+
+- HashMap* add_hashmap(char* array_col, sqlite3 *db, HashMap *HashMaps) : ajoute tous les éléments d'une colonne de la table "oa_trf_src" au hashmap.
+
+- void trans_hashmap_to_database(HashMap* hashMaps, sqlite3 *db, char* name): convertit le hashmap en une table dans la base de données.
+
+- main(): le programme ouvre une connexion à la base de données "ellipsys_test_db.db3", puis effectue des opérations avec les données, notamment créer une table, ajouter des données au hashmap, imprimer les données du hashmap et convertir le hashmap en table dans la base de données "ellipsys_test_db.db3". Enfin, nous pouvons créer une table "oa_trf_src_red" avec des colonnes de type INTERGER correspondant aux colonnes de type TEXT dans la table "oa_trf_src" en passant par des paires de valeurs de (id, Champ) dans les tables de hashmap correspondant aux colonnes de la table "oa_trf_src"". Enfin, le programme libère le hashmap et ferme la connexion à la base de données.
