@@ -182,6 +182,6 @@ int main(){
     //write_procedure("UPDATE oa_trf_src_red SET impact = (SELECT id FROM oa_trf_src_impact_lkp WHERE champ = oa_trf_src_red.impact) WHERE EXISTS (SELECT id FROM oa_trf_src_impact_lkp WHERE champ = oa_trf_src_red.impact);", db);
     //write_procedure("CREATE TABLE oa_trf_src_red AS SELECT * FROM oa_trf_src;",db);
    	sqlite3_close(db); //fermer la base de données
-
+	printf("database open\n");
 	return 0;
 }
